@@ -1,0 +1,161 @@
+@import "../../styles/vars";
+
+.message{
+  $self: &;
+  
+  &__content{
+    display: flex;
+    max-width: 440px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  &__avatar{
+    display: flex;
+    flex-direction: column-reverse;
+
+    img{
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      margin-right: 13px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__bubble{
+    background-color: $blue;
+    box-shadow: 0 5px 5px rgba(54, 116, 255, 0.196733);
+    border-radius: 12px 12px 12px 0;
+    margin-bottom: 8px;
+  }
+
+  &__text{
+    color: #fff;
+    padding: 15px;
+    line-height: 20px;
+  }
+
+  &__attachments{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    &-item{
+      img{
+        width: 45px;
+        height: 45px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__date{
+    font-size: 12px;
+    opacity: 0.4;
+  }
+
+  &__icon-readed{
+    position: absolute;
+    bottom: 25px;
+    left: -25px;
+  }
+
+  &--isme{
+    display: flex;
+    flex-direction: row-reverse;
+
+    #{$self}__content{
+      margin-bottom: 15px;
+      flex-direction: row-reverse;
+    }
+
+    #{$self}__avatar{
+      img{
+        margin-right: 0;
+        margin-left: 13px;
+      }
+    }
+
+    #{$self}__bubble{
+      background-color: #fff;
+      text-align: right;
+      border: 1px solid #ececec;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.0220444);
+      border-radius: 12px 12px 0 12px;
+    }
+
+    #{$self}__text{
+      color: $black;
+    }
+  }
+
+  &--is-typing{
+    #{$self}__bubble{
+      background-color: $blue-very-light;
+      box-shadow: 0 5px 5px rgba(54, 116, 255, 0.04);
+    }
+  }
+
+  &--image{
+    #{$self}__attachments-item{
+        img{
+          width: 150px;
+          height: 150px;
+        }
+      }
+  }
+
+  &__typing{
+      display: block;
+      width: 60px;
+      height: 40px;
+      border-radius: 20px;
+      margin: 0 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
+
+.circle{
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: $blue-light;
+  margin: 3px;
+
+  &.scaling{
+    animation: typing 1000ms ease-in-out infinite;
+    animation-delay: 3600ms;
+  }
+
+  &:nth-child(1){
+    animation-delay: 0ms;
+  }
+  
+  &:nth-child(2){
+    animation-delay: 333ms;
+  }
+
+  &:nth-child(3){
+  animation-delay: 666ms;
+  }
+  
+}
+
+@keyframes typing {
+  0% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
