@@ -1,0 +1,148 @@
+.chat{
+  display: flex;
+  height: 100%;
+  background-color: #fff;
+  width: 1140px;
+  margin: 0 auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.04204 );
+
+  &__sidebar{
+    width: 320px;
+    border-right: 1px solid #f7f7f7;
+
+    button{
+      width: 26px;
+      height: 26px;
+    }
+    
+    &-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      height: 58px;
+      border-bottom: 1px solid #f7f7f7;
+
+      & > div {
+        span {
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    &-search{
+      padding: 20px;
+
+      & > span{
+        background-color: #f7f8f9;
+        height: 38px;
+        border-radius: 5px;
+
+        span{
+          opacity: 0.6;
+        }
+      }
+
+      .ant-input {
+        background-color: transparent;
+        padding: 4px 11px 6px !important;
+      }
+    }
+
+    &-dialogs{
+      overflow: auto;
+      height: calc(100% - 135px);
+
+      &::-webkit-scrollbar {
+        cursor: pointer;
+        width: 5px;
+        padding-top: 78px;
+
+        &-track {
+          background-color: #188fff40;
+        }
+        &-thumb {
+          background-image: linear-gradient(180deg, #D0368A 0%, #1890ff 99%);
+          border-radius: 5px;
+        }
+      }
+
+      .dialogs{
+        &__item{
+          padding: 10px 20px;
+          margin-bottom: 0;
+          transition: 0.5s;
+          cursor: pointer;
+          
+          &.active,
+          &:hover{
+            background-color: #f3f7ff;
+          }
+        }
+      }
+    }
+  }
+
+  &__dialog{
+    flex: 1;
+
+    &-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 21px;
+      height: 58px;
+      border-bottom: 1px solid #f7f7f7;
+      margin-bottom: 20px;
+
+      &-center{
+        text-align: center;
+      }
+
+      &-username{
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+    }
+  }
+
+  &__messages{
+    padding: 20px 20px 0 20px;
+    overflow: auto;
+    height: calc(100% - 158px);
+    position: relative;
+  }
+}
+
+.chat{
+  &__dialog,
+  &__sidebar{
+    &-header{
+      button{
+        border: none;
+        background: transparent;
+        opacity: 0.5;
+        transition: 0.5s;
+        cursor: pointer;
+  
+        &:hover,
+        &:focus{
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.ant-empty{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &-description{
+    opacity: 0.5;
+  }
+}

@@ -6,5 +6,4 @@ const WhiteBlock = ({children, className}) => (
   <div className={classNames('block', className)}>{children}</div>
 )
 
-
 export default WhiteBlock;
