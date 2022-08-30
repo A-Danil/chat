@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Input, Upload, message } from 'antd';
 import { SmileOutlined, CameraOutlined, SendOutlined, AudioOutlined} from "@ant-design/icons";
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
 
 
 import PropTypes from 'prop-types';
@@ -9,6 +11,9 @@ import './ChatInput.scss';
 
 const ChatInput = (props) => {
   const [value, setValue] = useState('');
+  const [openEmoji, setOpenEmoji] = useState(false);
+
+  console.log(value)
 
   const uploadSettings = {
     name: 'file',
@@ -34,7 +39,11 @@ const ChatInput = (props) => {
   return (
     <div className='chat-input'>
       <div className='chat-input__smile-btn'>
-        <button>
+        {openEmoji && <Picker data={data} onEmojiSelect={console.log} emojiSize={18}/>}
+        <button onClick={()=>{
+            setOpenEmoji(!openEmoji)
+            // setValue()
+            }}>
           <SmileOutlined style={{ fontSize: '20px'}} />
         </button>
       </div>

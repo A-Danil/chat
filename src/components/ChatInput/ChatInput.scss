@@ -3,9 +3,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   &__smile-btn{
     margin-right: 15px;
+
+    & > div{
+      position: absolute;
+      bottom: 50px;
+      left: 0;
+    }
   }
 
     button{
@@ -28,5 +35,4 @@
     margin-left: 15px;
     width: 80px;
   }
-
 }

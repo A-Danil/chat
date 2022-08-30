@@ -2,6 +2,13 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useState, useEffect, useRef } from 'react';
 
+// import data from '@emoji-mart/data';
+// import Picker from '@emoji-mart/react';
+
+import data from '@emoji-mart/data';
+import { init } from 'emoji-mart';
+
+
 import waveSvg from 'assets/img/wave.svg';
 import playSvg from 'assets/img/play.svg';
 import pauseSvg from 'assets/img/pause.svg';
@@ -70,6 +77,8 @@ const MessageAudio = ({audioSrc}) => {
 
 const Message = ({ avatar, user, text, date, audio, isMe, isReaded, attachments, isTyping }) => {
 
+  init({ data });
+
   return(
     <div className={classNames('message', {
       'message--isme': isMe, 
@@ -85,7 +94,10 @@ const Message = ({ avatar, user, text, date, audio, isMe, isReaded, attachments,
         <div className='message__info'>
             {(audio || text || isTyping) && (
                 <div className='message__bubble'>
-                  {text && <p className='message__text'>{text}</p>}
+                  {text && 
+                    <p className='message__text'>
+                      <em-emoji shortcodes=":+1::skin-tone-1:" set="apple" size="16px">{text}</em-emoji>
+                    </p>}
                   {isTyping && <div className='message__typing'>
                     <span className="circle scaling"></span>
                     <span className="circle scaling"></span>

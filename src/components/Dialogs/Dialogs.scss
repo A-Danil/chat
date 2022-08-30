@@ -32,6 +32,11 @@
       }
     }
 
+    &--selected{
+      background-color: rgba(54, 118, 255);
+      color: #fff;
+    }
+
     &-info{
       display: flex;
       flex-direction: column;
