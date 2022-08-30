@@ -1,8 +1,7 @@
 import { TeamOutlined, FormOutlined, EllipsisOutlined } from "@ant-design/icons";
 
-import {Messages, Status, ChatInput} from 'components';
-import {Dialogs} from 'containers';
-import dialogs from 'dialogs.json';
+import { Status, ChatInput} from 'components';
+import {Dialogs, Messages} from 'containers';
 
 import './Home.scss';
 
@@ -24,7 +23,6 @@ const Home = () => {
           <div className="chat__sidebar-dialogs">
             <Dialogs
               userID = {0}
-              items={dialogs}
             />
           </div>
 
@@ -44,9 +42,7 @@ const Home = () => {
             </button>
           </div>
 
-          <div className="chat__messages">
-            <Messages />
-          </div>
+          <Messages />
 
           <div className="chat__dialog-input">
             <ChatInput/>

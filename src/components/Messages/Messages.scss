@@ -1,0 +1,27 @@
+.messages{
+  height: 100%;
+  padding: 20px;
+  padding-bottom: 0;
+  overflow: auto;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    cursor: pointer;
+    width: 5px;
+    padding-top: 78px;
+
+    &-track {
+      background-color: #188fff40;
+    }
+    &-thumb {
+      background-image: linear-gradient(180deg, #D0368A 0%, #1890ff 99%);
+      border-radius: 5px;
+    }
+  }
+
+  &--loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
